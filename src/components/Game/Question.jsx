@@ -4,6 +4,8 @@ import { quizSettings } from '../../data/quizSettings';
 import { findRomajisAtKanaKey, removeFromArray, arrayContains, shuffle, cartesianProduct } from '../../data/helperFuncs';
 import './Question.scss';
 
+const kana_count = 9;
+
 class Question extends Component {
   state = {
     previousQuestion: [],
@@ -80,7 +82,7 @@ class Question extends Component {
   }
 
   setAnswerOptions() {
-    this.answerOptions = this.getRandomKanas(3, this.currentQuestion[0], false);
+    this.answerOptions = this.getRandomKanas(kana_count, this.currentQuestion[0], false);
     this.setState({answerOptions: this.answerOptions});
     // console.log(this.answerOptions);
   }
